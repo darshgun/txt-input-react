@@ -5,24 +5,31 @@ import styles from "./TextInput.module.scss";
 
 const component = "text-input";
 
-export const TextInput = forwardRef(({ label, className, ...props }, ref) => {
-  const properties = { className: cx(styles.input, props.className) };
+export const TextInput = forwardRef(
+  ({ label, className, value, ...props }, ref) => {
+    const properties = {
+      className: cx(styles.input, className),
+      value,
+      ...props
+    };
 
-  return (
-    <div className={styles.wrapper}>
-      <label className={styles.label}>{label}</label>
-      <div className={styles.content}>
-        <input ref={ref} {...properties} />
-        <div className={styles.backdrop}></div>
+    return (
+      <div className={cx(styles.wrapper, value && styles.filled)}>
+        <label className={styles.label}>{label}</label>
+        <div className={styles.content}>
+          <input ref={ref} {...properties} />
+          <div className={styles.backdrop}></div>
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 TextInput.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   label: PropTypes.string,
+  value: PropTypes.string,
   ref: PropTypes.func
 };
 

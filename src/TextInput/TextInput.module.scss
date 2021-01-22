@@ -10,7 +10,7 @@ $control-line-height: $control-font-size * 1.2;
   position: relative;
   vertical-align: top;
   flex-direction: column;
-  &:focus-within {
+  &.filled, &:focus-within {
     .label {
       $transform-padding-x: .5rem;
       $transform-scale: .75;
@@ -58,6 +58,10 @@ $control-line-height: $control-font-size * 1.2;
   position: relative;
   width: 100%;
   z-index: 1;
+  &::placeholder {
+    color: transparent;
+    opacity: 0;
+  }
   &:focus {
     outline: 0;
     & + .backdrop {
