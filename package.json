@@ -16,5 +16,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "latest"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
